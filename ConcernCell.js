@@ -48,9 +48,7 @@ export default class ConcernCell extends Component{
     render(){
         const {rowData,rowid} = this.props
         return(
-            <TouchableWithoutFeedback onPress={()=>{
-                TMReactBridgeManager.toNewMechine(rowData.uid)
-            }}>
+
             <View>
                 <View style={{flexDirection:'row',marginTop:15,marginBottom:15,alignItems:'center',backgroundColor:'white'}}>
                     <View>
@@ -64,14 +62,13 @@ export default class ConcernCell extends Component{
 
                         <Text style={{marginTop:6,fontSize:12,color:'#999999'}}>{"擅长：" + this._memCombineStr(rowData.mem,',')}</Text>
                     </View>
-                    <TouchableWithoutFeedback onPress={() => this._concern(rowData.has_follow,rowData.uid,rowid)}>
+                    <TouchableWithoutFeedback>
                         {this._chageButton(rowData.has_follow)}
                     </TouchableWithoutFeedback>
 
                 </View>
                 <View style={{marginLeft:75,width:width-15,height:0.5,backgroundColor:'#e8e8e8'}}/>
             </View>
-            </TouchableWithoutFeedback>
         )
     }
 
