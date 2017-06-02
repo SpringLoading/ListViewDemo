@@ -18,6 +18,8 @@ import {
     ListView,
     Image,
     RefreshControl,
+    ToastAndroid,
+    TouchableHighlight,
 } from 'react-native';
 import React, {Component} from 'react';
 
@@ -101,31 +103,43 @@ export default class ListViewDemo extends Component {
     }
 
     _renderRow(rowData,sectionID,rowId){
+        console.log(rowData)
         if (sectionID === 'question'){
             if(rowData === 'ask'){
                 return(
+                    <TouchableHighlight onPress={()=>
+                        ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
                     <View>
-                      <View style={{backgroundColor:'white',padding:15,width:width}}>
-                        <View style={{backgroundColor:'#ff4b0c',borderRadius:4,flexDirection:'row',height:42,alignItems:'center',justifyContent:'center'}}>
-                          <Image source={require('./styles/assets/lijitiwen.png')} style={{width:16,height:16}}/>
-                          <Text style={{marginLeft:4,color:'white',fontSize:15}}>立即提问</Text>
-                        </View>
-                      </View>
+
+                            <View style={{backgroundColor:'white',padding:15,width:width}}>
+                                <View style={{backgroundColor:'#ff4b0c',borderRadius:4,flexDirection:'row',height:42,alignItems:'center',justifyContent:'center'}}>
+                                    <Image source={require('./styles/assets/lijitiwen.png')} style={{width:16,height:16}}/>
+                                    <Text style={{marginLeft:4,color:'white',fontSize:15}}>立即提问</Text>
+                                </View>
+                            </View>
+
+
                       <View style={{height:5,backgroundColor:"#f2f2f2",width:width}}/>
                     </View>
+                    </TouchableHighlight>
                 )
             }
             return (
+                <TouchableHighlight onPress={()=>
+                    ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
                 <View>
                   <SimpleQuestionCell rowData={rowData} />
                     {this._renderFooter(sectionID,rowId)}
                 </View>
+                </TouchableHighlight>
             )
         }
 
         if(sectionID === 'article'){
             console.log('articleImg',rowData.pic)
             return (
+                <TouchableHighlight onPress={()=>
+                    ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
                 <View>
                   <View style={{flexDirection:'row',marginTop:15,marginBottom:15,backgroundColor:'white'}}>
                     <View>
@@ -142,11 +156,15 @@ export default class ListViewDemo extends Component {
                   </View>
                     {this._renderFooter(sectionID,rowId)}
                 </View>
-            )
+                </TouchableHighlight>
+                    )
+
         }
 
         if(sectionID === 'service'){
             return (
+                <TouchableHighlight onPress={()=>
+                    ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
                 <View>
                   <View style={{flexDirection:'row',marginTop:15,marginBottom:15,alignItems:'center',backgroundColor:'white'}}>
                     <View>
@@ -160,25 +178,38 @@ export default class ListViewDemo extends Component {
                   </View>
                     {this._renderFooter(sectionID,rowId)}
                 </View>
+                </TouchableHighlight>
             )
         }
         //
         if (sectionID === 'brandme'){
             if (rowData == 'none' && !this.props.brand){
-                return(<NoBrandView/>)
+
+                return(
+                    <TouchableHighlight onPress={()=>
+                        ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
+                    <NoBrandView/>
+                    </TouchableHighlight>
+                )
             }else if(rowData == 'none' && this.props.brand && this.props.brand !== ''){
                 return (
+                    <TouchableHighlight onPress={()=>
+                        ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
                     <View style={{justifyContent:'center',alignItems:'center',width:width,height:height - 256}}>
                       <Image style={{width:80,height:80}}source={require('./styles/assets/pic_jishi.png')}/>
                       <Text style={{fontSize:14,color:'#999999'}}>没有技师</Text>
                     </View>
+                    </TouchableHighlight>
                 )
             }
             return(
+                <TouchableHighlight onPress={()=>
+                    ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
                 <View>
                   <ConcernCell rowData={rowData} rowid={rowId} isSubmit={true}/>
                     {this._renderFooter(sectionID,rowId)}
                 </View>
+                </TouchableHighlight>
             )
         }
         return <View/>
@@ -225,6 +256,8 @@ export default class ListViewDemo extends Component {
                 }
             }
             return (
+                <TouchableHighlight onPress={()=>
+                    ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
                 <View>
                   <View style={{marginTop:18,flexDirection:'row',width:width,backgroundColor:'white',alignItems:'center'}}>
                     <Image style={{width:20,height:20,marginLeft:12}} source={this._getHeaderImg(sectionId)}/>
@@ -234,6 +267,7 @@ export default class ListViewDemo extends Component {
                   </View>
                     {this._headerLine(sectionId)}
                 </View>
+                </TouchableHighlight>
             )
         }else{
             return false
@@ -246,12 +280,20 @@ export default class ListViewDemo extends Component {
             if (rowID === '2'){
                 return false
             }else{
-                return <View style={{marginLeft:15,width:width-15,height:0.5,backgroundColor:'#e8e8e8'}}/>
+
+                return
+                <TouchableHighlight onPress={()=>
+                    ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
+                <View style={{marginLeft:15,width:width-15,height:0.5,backgroundColor:'#e8e8e8'}}/>
+                </TouchableHighlight>
             }
         }
         if(rowID === '1'){
             return (
+                <TouchableHighlight onPress={()=>
+                    ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
                 <View style={{height:5,backgroundColor:"#f2f2f2",width:width}}/>
+                </TouchableHighlight>
             )
         }else{
             if(sectionID === 'brandme'){
@@ -259,7 +301,10 @@ export default class ListViewDemo extends Component {
             }
             if(sectionID === 'service'){
                 return (
+                    <TouchableHighlight onPress={()=>
+                        ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
                     <View style={{height:5,backgroundColor:"#f2f2f2",width:width}}/>
+                    </TouchableHighlight>
                 )
             }
             return <View style={{marginLeft:15,width:width-15,height:0.5,backgroundColor:'#e8e8e8'}}/>
