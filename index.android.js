@@ -257,7 +257,7 @@ export default class ListViewDemo extends Component {
             }
             return (
                 <TouchableHighlight onPress={()=>
-                    ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
+                    ToastAndroid.show('sectionData : '+sectionData+'  sectionId : '+sectionId,ToastAndroid.SHORT)}>
                 <View>
                   <View style={{marginTop:18,flexDirection:'row',width:width,backgroundColor:'white',alignItems:'center'}}>
                     <Image style={{width:20,height:20,marginLeft:12}} source={this._getHeaderImg(sectionId)}/>
