@@ -194,7 +194,7 @@ export default class ListViewDemo extends Component {
             }else if(rowData == 'none' && this.props.brand && this.props.brand !== ''){
                 return (
                     <TouchableHighlight onPress={()=>
-                        ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
+                        ToastAndroid.show('rowdata : '+rowData.valueOf()+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
                     <View style={{justifyContent:'center',alignItems:'center',width:width,height:height - 256}}>
                       <Image style={{width:80,height:80}}source={require('./styles/assets/pic_jishi.png')}/>
                       <Text style={{fontSize:14,color:'#999999'}}>没有技师</Text>
@@ -302,7 +302,7 @@ export default class ListViewDemo extends Component {
             if(sectionID === 'service'){
                 return (
                     <TouchableHighlight onPress={()=>
-                        ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
+                        ToastAndroid.show('rowdata : '+rowData.toString()+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
                     <View style={{height:5,backgroundColor:"#f2f2f2",width:width}}/>
                     </TouchableHighlight>
                 )
