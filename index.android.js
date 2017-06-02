@@ -107,9 +107,9 @@ export default class ListViewDemo extends Component {
         if (sectionID === 'question'){
             if(rowData === 'ask'){
                 return(
-                    <TouchableHighlight onPress={()=>
+                    <TouchableHighlight  onPress={()=>
                         ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
-                    <View>
+                    <View >
 
                             <View style={{backgroundColor:'white',padding:15,width:width}}>
                                 <View style={{backgroundColor:'#ff4b0c',borderRadius:4,flexDirection:'row',height:42,alignItems:'center',justifyContent:'center'}}>
@@ -125,9 +125,9 @@ export default class ListViewDemo extends Component {
                 )
             }
             return (
-                <TouchableHighlight onPress={()=>
+                <TouchableHighlight  onPress={()=>
                     ToastAndroid.show('rowdata : '+rowData+'  sectionID : '+sectionID+'  rowId : '+rowId,ToastAndroid.SHORT)}>
-                <View>
+                <View style={{backgroundColor:'white'}}>//视图的backgroundColor需要显式声明一个不透明的颜色
                   <SimpleQuestionCell rowData={rowData} />
                     {this._renderFooter(sectionID,rowId)}
                 </View>
